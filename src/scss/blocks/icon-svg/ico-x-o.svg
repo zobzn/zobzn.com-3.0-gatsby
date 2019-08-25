@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="200" height="100"
+     stroke-width="10" stroke="#333333">
+    <defs>
+        <g id="x">
+            <circle fill="transparent" cx="50" cy="50" r="45" />
+            <line x1="30" y1="30" x2="70" y2="70" />
+            <line x1="30" y1="70" x2="70" y2="30" />
+        </g>
+    </defs>
+    <use xlink:href="#x" stroke="#333333" transform="translate(0)" />
+    <use xlink:href="#x" stroke="#ff5223" transform="translate(100)" />
+</svg>

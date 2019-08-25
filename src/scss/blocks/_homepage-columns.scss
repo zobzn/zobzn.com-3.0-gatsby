@@ -1,0 +1,25 @@
+@import "../partial/variables";
+
+.homepage-columns {
+  & {
+    margin-left: -3em;
+  }
+
+  @media screen {
+    &__column {
+      box-sizing: border-box;
+      margin: 0 0 2em 3em;
+      flex: 1 1 auto;
+      padding: 0;
+
+      &-title {
+        margin: 0 0 1em 0;
+        padding-top: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-md-min) {
+    display: flex;
+  }
+}

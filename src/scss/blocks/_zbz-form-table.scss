@@ -1,0 +1,57 @@
+/* ------------------------------------------------------------------------- */
+
+.zbz-form-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  .est-dropdown-content & {
+    margin: 10px 0;
+  }
+}
+
+.zbz-form-table__row-head,
+.zbz-form-table__row-body,
+.zbz-form-table__row-help {
+  vertical-align: top;
+  text-align: left;
+
+  .zbz-form-table__rowlast-child & {
+    padding-bottom: 0;
+  }
+}
+
+.zbz-form-table__row-head {
+  padding: 0 20px 20px 0;
+  font-weight: normal;
+}
+
+.zbz-form-table__row-body {
+  padding: 0 0 20px 0;
+  font-weight: normal;
+
+  > input[type="checkbox"] {
+    vertical-align: bottom;
+  }
+}
+
+.zbz-form-table__row-help {
+  padding: 0 0 20px 10px;
+  font-weight: normal;
+  color: #797979;
+}
+
+.zbz-form-table__row-headempty,
+.zbz-form-table__row-bodyempty,
+.zbz-form-table__row-helpempty {
+  padding: 0;
+}
+
+.zbz-form-table__row-errors {
+  padding: 0 0 20px 0;
+
+  .error {
+    color: red;
+  }
+}
+
+/* ------------------------------------------------------------------------- */

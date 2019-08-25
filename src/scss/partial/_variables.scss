@@ -1,0 +1,103 @@
+// ----------------------------------------------------------------------------
+
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+
+  @each $key, $num in $map {
+    @if $prev-num == null {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      // @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      @warn 'Potentially invalid value for #{$map-name}: This map must be in ascending order, but key #{$key} has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key #{$prev-key} !';
+    } @else if $prev-num >= $num {
+      // @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      @warn 'Invalid value for #{$map-name}: This map must be in ascending order, but key #{$key} has value #{$num} which is not greater than #{$prev-num}, the value of the previous key #{$prev-key} !';
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+@mixin _assert-starts-at-zero($map) {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+
+  @if $first-value != 0 {
+    @warn 'First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.';
+  }
+}
+
+// ----------------------------------------------------------------------------
+// сетка
+
+$screen-name-xs: "xs";
+$screen-name-sm: "sm";
+$screen-name-md: "md";
+$screen-name-lg: "lg";
+$screen-name-xl: "xl";
+$grid-columns: 12;
+$grid-gutters: (
+  $screen-name-xs: 10px,
+  $screen-name-sm: 20px,
+  $screen-name-md: 30px,
+  $screen-name-lg: 30px,
+  $screen-name-xl: 30px
+);
+$grid-breakpoints: (
+  $screen-name-xs: 0,
+  $screen-name-sm: 576px,
+  $screen-name-md: 768px,
+  $screen-name-lg: 992px,
+  $screen-name-xl: 1200px
+);
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+// ----------------------------------------------------------------------------
+// медиа-запросы
+
+$screen-xs-min: 0px;
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+$screen-lg-max: ($screen-xl-min - 1);
+// $page-width-max-global: 1360px;
+
+// ----------------------------------------------------------------------------
+
+$page-width-320: 320px;
+$page-bg-color: #fff;
+
+// ----------------------------------------------------------------------------
+
+$link-color: #000;
+$link-color-hover: #666;
+$link-underline-color: #999;
+$link-underline-position-y: 94%;
+
+// ----------------------------------------------------------------------------
+
+$base-font-size-min: 14px;
+$base-font-size-mid: 16px;
+$base-font-size-max: 18px;
+
+// ----------------------------------------------------------------------------
+
+$font-mono: Consolas, "Andale Mono", "Courier New", monospace;
+$font-sans: "Fira Sans", "Segoe UI", "Times New Roman", sans-serif;
+// $font-button: Arial, sans-serif;
+$font-site-head: Georgia, serif;
+$font-button: $font-sans;
+$font-title: "Fira Sans", "Trebuchet MS", "Segoe UI", "Times New Roman",
+  sans-serif;
+
+// ----------------------------------------------------------------------------
+// цвета
+
+$color-797979: #797979;

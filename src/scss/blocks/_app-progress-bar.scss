@@ -1,0 +1,45 @@
+.app-progress-bar,
+.app-progress-bar:before {
+  height: 1px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.app-progress-bar {
+  // background-color: #b3d4fc;
+  // background-color: rgba(54, 215, 183, 0.2);
+  background-clip: padding-box;
+  background-color: #eee;
+  // flex: 0 0 auto;
+  display: flex;
+
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  top: 0;
+}
+
+.app-progress-bar:before {
+  animation: app-progress-bar-animation 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  // background-color: #3f51b5;
+  // background-color: rgb(54, 215, 183);
+  background-clip: padding-box;
+  background-color: #444;
+  content: "";
+}
+
+@keyframes app-progress-bar-animation {
+  0% {
+    margin-left: 0;
+    margin-right: 100%;
+  }
+  50% {
+    margin-left: 25%;
+    margin-right: 0;
+  }
+  100% {
+    margin-left: 100%;
+    margin-right: 0;
+  }
+}

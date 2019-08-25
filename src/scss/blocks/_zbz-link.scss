@@ -1,0 +1,26 @@
+@import "../partial/variables";
+
+.zbz-link {
+  & {
+    background: linear-gradient(
+        to right,
+        $link-underline-color,
+        $link-underline-color 100%
+      )
+      repeat-x 0 #{$link-underline-position-y} / 10px 1px;
+    text-shadow: 1px 0 $page-bg-color, 2px 0 $page-bg-color,
+      -1px 0 $page-bg-color, -2px 0 $page-bg-color;
+    text-decoration: none;
+    color: $link-color;
+    cursor: pointer;
+    border: none;
+  }
+
+  &:hover {
+    color: $link-color-hover;
+  }
+
+  &--transparent {
+    opacity: 0.5;
+  }
+}

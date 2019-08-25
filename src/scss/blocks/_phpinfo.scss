@@ -1,0 +1,97 @@
+.phpinfo {
+  & {
+    // background-color: #fff;
+    font-family: sans-serif;
+    color: #222;
+  }
+
+  pre {
+    margin: 0;
+    font-family: monospace;
+  }
+
+  a:link {
+    color: #009;
+    text-decoration: none;
+    background-color: #fff;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  table {
+    // box-shadow: 1px 2px 3px #ccc;
+    // width: 934px;
+    border-collapse: collapse;
+    width: 100%;
+    border: 0;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .center table {
+    margin: 1em auto;
+    text-align: left;
+  }
+
+  .center th {
+    text-align: center !important;
+  }
+
+  td,
+  th {
+    vertical-align: baseline;
+    border: 1px solid #666;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-size: 150%;
+  }
+
+  h2 {
+    font-size: 125%;
+  }
+
+  .p {
+    text-align: left;
+  }
+
+  .e {
+    background-color: #ccf;
+    width: 300px;
+    font-weight: bold;
+  }
+
+  .h {
+    background-color: #99c;
+    font-weight: bold;
+  }
+
+  .v {
+    background-color: #ddd;
+    max-width: 300px;
+    overflow-x: auto;
+    word-wrap: break-word;
+  }
+
+  .v i {
+    color: #999;
+  }
+
+  img {
+    float: right;
+    border: 0;
+  }
+
+  hr {
+    width: 934px;
+    background-color: #ccc;
+    border: 0;
+    height: 1px;
+  }
+}

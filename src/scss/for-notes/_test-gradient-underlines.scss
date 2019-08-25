@@ -1,0 +1,26 @@
+.test-underline {
+  background: linear-gradient(to right, #999, #999 100%) repeat-x 0 100%;
+  background-size: 10px 1px;
+}
+
+.test-dashed {
+  background: linear-gradient(to right, #999, #999 60%, transparent 60%)
+    repeat-x 0 100%;
+  background-size: 10px 1px;
+}
+
+.test-dotted {
+  background: linear-gradient(to right, #999, #999 50%, transparent 50%)
+    repeat-x 0 100%;
+  background-size: 3px 1px;
+}
+
+.test-decoration-color {
+  text-decoration-color: #999;
+  text-decoration: underline;
+}
+
+.test-decoration-style {
+  text-decoration-style: dotted;
+  text-decoration: underline;
+}

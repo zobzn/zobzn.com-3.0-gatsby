@@ -7,12 +7,13 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 
-import Header from "./header";
-import "./layout.scss";
+// import Header from "./header";
 
-const Layout = ({ children }) => {
+import "../scss/app.scss";
+
+export default function Layout({ location, children }) {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -23,30 +24,51 @@ const Layout = ({ children }) => {
     }
   `);
 
+  // const data2 = useStaticQuery(graphql`
+  //   query LayoutQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `);
+
+  const { title } = data.site.siteMetadata;
+  const rootPath = `${__PATH_PREFIX__}/` + (title ? "" : "");
+  const isHomepage =
+    location && location.pathname && location.pathname === rootPath;
+
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div className={`page-bone`}>
+      <header className="site-head">
+        {isHomepage && <span className="site-head__title">{/* title */}</span>}
+        {!isHomepage && (
+          <Link className="site-head__title" to={`/`}>
+            {/* title */}
+          </Link>
+        )}
+        {true && (
+          <Link className="zbz-link ml-3" to={`/hello`}>
+            Привет
+          </Link>
+        )}
+        {false && (
+          <a className="zbz-link ml-3" href="/start">
+            Старт
+          </a>
+        )}
+        {false && (
+          <a className="zbz-link ml-3" href="/upwork">
+            Upwork
+          </a>
+        )}
+      </header>
+      <main>{children}</main>
+    </div>
   );
-};
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired
 };
-
-export default Layout;
