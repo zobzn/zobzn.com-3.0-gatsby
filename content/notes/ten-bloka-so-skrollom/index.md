@@ -9,7 +9,7 @@ date: "2014-07-02 22:33:52"
 http://codepen.io/kizu/pen/LpQPmY?editors=110
 -->
 
-![scroll shadows](/images/notes/scroll-shadows/example.png)
+![Блок со скроллом и тенью](example.png)
 
 За основу брал варианты [Романа Комарова](http://kizu.ru/fun/shadowscroll/) и [Lea Verou](http://lea.verou.me/2012/04/background-attachment-local/).
 Основная идея тут в том, что создаются две тени, темная и светлая.
@@ -26,9 +26,9 @@ http://codepen.io/kizu/pen/LpQPmY?editors=110
 
 ```html
 <div class="demo-scroll-shadows demo-scroll-shadows--black">
-    <div class="demo-scroll-shadows--white">
-        … контент …
-    </div>
+  <div class="demo-scroll-shadows--white">
+    … контент …
+  </div>
 </div>
 ```
 
@@ -36,23 +36,37 @@ http://codepen.io/kizu/pen/LpQPmY?editors=110
 
 ```css
 .demo-scroll-shadows {
-    max-height: 200px;
-    max-width: 600px;
-    overflow: auto;
-    margin: 15px 0;
+  max-height: 200px;
+  max-width: 600px;
+  overflow: auto;
+  margin: 15px 0;
 }
 
 .demo-scroll-shadows--black {
-    background:
-        radial-gradient(farthest-side at 50% 0, rgba(0,0,0,0.2), rgba(0,0,0,0)) 0 0 / 100% 15px no-repeat scroll,
-        radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.2), rgba(0,0,0,0)) 0 100% / 100% 15px no-repeat scroll;
+  background: radial-gradient(
+        farthest-side at 50% 0,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0)
+      ) 0 0 / 100% 15px no-repeat scroll, radial-gradient(
+        farthest-side at 50% 100%,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0)
+      ) 0 100% / 100% 15px no-repeat scroll;
 }
 
 .demo-scroll-shadows--white {
-    padding: 1px 0;
-    background:
-        linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0.5) 70%, rgba(255,255,255,0)) 0 0 / 100% 30px no-repeat local,
-        linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5) 30%, rgba(255,255,255,1)) 0 100% / 100% 30px no-repeat local;
+  padding: 1px 0;
+  background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1),
+        rgba(255, 255, 255, 0.5) 70%,
+        rgba(255, 255, 255, 0)
+      ) 0 0 / 100% 30px no-repeat local, linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.5) 30%,
+        rgba(255, 255, 255, 1)
+      ) 0 100% / 100% 30px no-repeat local;
 }
 ```
 
