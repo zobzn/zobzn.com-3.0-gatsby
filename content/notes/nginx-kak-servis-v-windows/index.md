@@ -26,7 +26,7 @@ date: "2015-05-12 22:33:05"
 
 После этого выполняем непосредственную установку и запуск сервиса.
 
-```dos
+```batch
 nginx-service.exe install
 nginx-service.exe start
 ```

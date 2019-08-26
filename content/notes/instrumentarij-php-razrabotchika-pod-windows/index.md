@@ -53,7 +53,7 @@ date: "2014-03-12 22:41:27"
 
 ### Пример простой настройки apache (`httpd.conf`)
 
-```apache
+```apacheconf
 #
 # заменить пути, например:
 # c:/apache24 => /bin/apache24

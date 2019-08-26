@@ -7,7 +7,7 @@ date: "2014-03-05 22:52:39"
 
 Для windows можно скачать скомпилированный модуль с [apachelounge.com](http://www.apachelounge.com/download/), затем подключить его в `httpd.conf`.
 
-```apache
+```apacheconf
 LoadModule bw_module modules/mod_bw.so
 ```
 
@@ -20,7 +20,7 @@ sudo a2enmod bw
 
 И потом в настройках виртуального хоста добавить что-нибудь типа такого.
 
-```apache
+```apacheconf
 <IfModule filter_module>
     <IfModule bw_module>
         AddOutputFilterByType MOD_BW image/gif image/jpg image/jpeg image/png image/x-png
