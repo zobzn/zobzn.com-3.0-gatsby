@@ -7,24 +7,24 @@ date: "2014-03-23 23:23:39"
 
 ```css
 .test-underline {
-    background: linear-gradient(to right, #999, #999 100%);
-    background-position: 0 100%;
-    background-size: 10px 1px;
-    background-repeat: repeat-x;
+  background: linear-gradient(to right, #999, #999 100%);
+  background-position: 0 100%;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
 }
 
 .test-dashed {
-    background: linear-gradient(to right, #999, #999 60%, transparent 60%);
-    background-position: 0 100%;
-    background-repeat: repeat-x;
-    background-size: 10px 1px;
+  background: linear-gradient(to right, #999, #999 60%, transparent 60%);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 10px 1px;
 }
 
 .test-dotted {
-    background: linear-gradient(to right, #999, #999 50%, transparent 50%);
-    background-repeat: repeat-x;
-    background-position: 0 100%;
-    background-size: 3px 1px;
+  background: linear-gradient(to right, #999, #999 50%, transparent 50%);
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 3px 1px;
 }
 ```
 
@@ -32,12 +32,12 @@ date: "2014-03-23 23:23:39"
 
 ```css
 .test-decoration-color {
-    text-decoration-color: #999;
-    text-decoration: underline;
+  text-decoration-color: #999;
+  text-decoration: underline;
 }
 
 .test-decoration-style {
-    text-decoration-style: dotted;
-    text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration: underline;
 }
 ```

@@ -1,43 +1,50 @@
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import React from "react";
 
-const Header = ({ siteTitle }) => (
-  <header
-    className={`zbz-header`}
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+export default function Header({ location }) {
+  // @see https://www.gatsbyjs.org/docs/use-static-query/
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
+  const { title: siteTitle } = data.site.siteMetadata;
+  const rootPath = `${__PATH_PREFIX__}/`;
+  const isHomepage =
+    location && location.pathname && location.pathname === rootPath;
+
+  return (
+    <header className="site-head">
+      {isHomepage && (
+        <h1 className="site-head__title" data-site-title={siteTitle}></h1>
+      )}
+      {!isHomepage && (
         <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`
-          }}
-        >
-          {siteTitle}
+          className="site-head__title"
+          data-site-title={siteTitle}
+          to={`/`}
+        />
+      )}
+      {true && (
+        <Link className="zbz-link ml-3" to={`/hello`}>
+          Привет
         </Link>
-      </h1>
-    </div>
-  </header>
-);
-
-Header.propTypes = {
-  siteTitle: PropTypes.string
-};
-
-Header.defaultProps = {
-  siteTitle: ``
-};
-
-export default Header;
+      )}
+      {false && (
+        <a className="zbz-link ml-3" href="/start">
+          Старт
+        </a>
+      )}
+      {false && (
+        <a className="zbz-link ml-3" href="/upwork">
+          Upwork
+        </a>
+      )}
+    </header>
+  );
+}

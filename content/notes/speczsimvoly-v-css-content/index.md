@@ -17,9 +17,9 @@ date: "2015-05-04 10:32:57"
 
 ```css
 .some-element:before {
-    content: 'с \a0 приветом \0a из \a0 Москвы';
-    white-space: pre;
-    color: green;
+  content: "с \a0 приветом \0a из \a0 Москвы";
+  white-space: pre;
+  color: green;
 }
 ```
 

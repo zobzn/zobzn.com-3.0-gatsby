@@ -11,9 +11,9 @@ date: "2014-06-16 23:50:40"
 
 ```html
 <div class="swap-hr">
-    <span class="swap-hr__foot">[переместится вправо]</span>
-    <span class="swap-hr__body">[останется в середине]</span>
-    <span class="swap-hr__head">[переместится влево]</span>
+  <span class="swap-hr__foot">[переместится вправо]</span>
+  <span class="swap-hr__body">[останется в середине]</span>
+  <span class="swap-hr__head">[переместится влево]</span>
 </div>
 ```
 
@@ -21,16 +21,16 @@ date: "2014-06-16 23:50:40"
 
 ```css
 .swap-hr {
-    display: inline-block;
+  display: inline-block;
 }
 .swap-hr__body {
-    float: right;
+  float: right;
 }
 .swap-hr__head {
-    float: left;
+  float: left;
 }
 .swap-hr__foot {
-    float: right;
+  float: right;
 }
 ```
 
@@ -38,8 +38,8 @@ date: "2014-06-16 23:50:40"
 
 ```css
 .swap-hr {
-    display: inline-flex;
-    flex-direction: row-reverse;
+  display: inline-flex;
+  flex-direction: row-reverse;
 }
 ```
 
@@ -54,9 +54,9 @@ date: "2014-06-16 23:50:40"
 
 ```html
 <div class="swap-vr">
-    <span class="swap-vr__foot">[переместится вниз]</span>
-    <span class="swap-vr__body">[останется в середине]</span>
-    <span class="swap-vr__head">[переместится вверх]</span>
+  <span class="swap-vr__foot">[переместится вниз]</span>
+  <span class="swap-vr__body">[останется в середине]</span>
+  <span class="swap-vr__head">[переместится вверх]</span>
 </div>
 ```
 
@@ -66,18 +66,18 @@ date: "2014-06-16 23:50:40"
 
 ```css
 .swap-vr {
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table;
 }
 .swap-vr__head {
-    display: table-header-group;
+  display: table-header-group;
 }
 .swap-vr__body {
-    display: table-row-group;
+  display: table-row-group;
 }
 .swap-vr__foot {
-    display: table-footer-group;
+  display: table-footer-group;
 }
 ```
 
@@ -85,8 +85,8 @@ date: "2014-06-16 23:50:40"
 
 ```css
 .swap-vr {
-    display: flex;
-    flex-direction: column-reverse;
+  display: flex;
+  flex-direction: column-reverse;
 }
 ```
 

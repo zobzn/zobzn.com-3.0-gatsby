@@ -9,12 +9,12 @@ date: "2014-07-01 14:02:36"
 
 ```html
 <table class="demo-rotate">
-    <tr>
-        <td><span class="demo-rotate__item">первый текст</span></td>
-    </tr>
-    <tr>
-        <td><span class="demo-rotate__item">второй текст</span></td>
-    </tr>
+  <tr>
+    <td><span class="demo-rotate__item">первый текст</span></td>
+  </tr>
+  <tr>
+    <td><span class="demo-rotate__item">второй текст</span></td>
+  </tr>
 </table>
 ```
 
@@ -22,10 +22,10 @@ date: "2014-07-01 14:02:36"
 
 ```css
 .demo-rotate {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .demo-rotate__item {
-    transform: rotate(-180deg);
+  transform: rotate(-180deg);
 }
 ```
 

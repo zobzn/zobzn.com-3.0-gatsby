@@ -8,7 +8,7 @@ date: "2014-03-05 23:09:59"
 Самый первый способ, который приходит в голову.
 
 ```js
-$('select option').hide();
+$("select option").hide();
 ```
 
 К сожалению он сработает не везде. При проверке в FF, IE, Chrome у меня заработало только в FF.
@@ -19,9 +19,12 @@ $('select option').hide();
 
 ```js
 // скрытие option элементов
-$('select &gt; option').wrap('span').parent().hide();
+$("select &gt; option")
+  .wrap("span")
+  .parent()
+  .hide();
 // и соответственно, отображение
-$('select &gt; span &gt; option').unwrap();
+$("select &gt; span &gt; option").unwrap();
 ```
 
 У этого способа есть один недостотаток. В браузере google chrome при навигации по списку с помощью клавиатуры свойство `selectedIndex` в некоторых случаях будет принимать неверное значение.
