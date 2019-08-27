@@ -1,14 +1,57 @@
 import React from "react";
+import { Link } from "gatsby";
 
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-);
+import "./404.scss";
 
-export default NotFoundPage;
+function onClickReload() {
+  global.location.reload();
+}
+
+function onClickGoBack() {
+  global.history.back();
+}
+
+export default function NotFoundPage() {
+  return (
+    <div className="not-found-page">
+      <SEO title="404: Not found" />
+      <h1>
+        <Link className="link-homepage" to={`/`}></Link>
+        Страница не найдена
+      </h1>
+      <p className="para-bordered">
+        Страница, которую Вы ищете, не&nbsp;найдена. Возможно, она была удалена,
+        изменился её адрес, либо страница временно недоступна.
+      </p>
+      <p className="para-bordered">Попробуйте следующее:</p>
+      <ul>
+        <li>
+          Убедитесь, что адрес, набранный в&nbsp;адресной строке Вашего
+          браузера, не&nbsp;содержит ошибок.
+        </li>
+        <li>
+          Нажмите кнопку «
+          <a className={`error-page-link`} onClick={onClickReload}>
+            Обновить
+          </a>
+          » или повторите попытку позже.
+        </li>
+        <li>
+          Нажмите кнопку «
+          <a className={`error-page-link`} onClick={onClickGoBack}>
+            Назад
+          </a>
+          », чтобы вернуться на&nbsp;предыдущую страницу.
+        </li>
+      </ul>
+      <p className="para-bordered">
+        Если Вы считаете, что запрошенная Вами страница должна находиться
+        по&nbsp;этому адресу или Вы перешли на&nbsp;нее по&nbsp;ссылке
+        с&nbsp;одной из&nbsp;страниц этого&nbsp;же сайта, пожалуйста, сообщите
+        нам об&nbsp;этом.
+      </p>
+    </div>
+  );
+}

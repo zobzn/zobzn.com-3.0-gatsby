@@ -13,6 +13,12 @@ export default function Header({ location }) {
     }
   `);
 
+  const localhosts = ["localhost", "127.0.0.1", "10.0.75.1", "192.168.0.100"];
+  const isLocalHost =
+    typeof window !== "undefined" &&
+    window.location.hostname &&
+    localhosts.indexOf(window.location.hostname) !== -1;
+
   const { title: siteTitle } = data.site.siteMetadata;
   const rootPath = `${__PATH_PREFIX__}/`;
   const isHomepage =
@@ -30,17 +36,12 @@ export default function Header({ location }) {
           to={`/`}
         />
       )}
-      {true && (
-        <Link className="zbz-link ml-3" to={`/hello`}>
-          Привет
-        </Link>
-      )}
-      {false && (
+      {isLocalHost && (
         <a className="zbz-link ml-3" href="/start">
           Старт
         </a>
       )}
-      {false && (
+      {isLocalHost && (
         <a className="zbz-link ml-3" href="/upwork">
           Upwork
         </a>

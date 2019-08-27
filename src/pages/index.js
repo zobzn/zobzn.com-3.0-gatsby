@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+import "../scss/app.scss";
+
 export default function IndexPage({ data }) {
   const notes = data.allMarkdownRemark.edges.map(({ node }) => ({
     slug: node.fields.slug,
