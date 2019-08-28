@@ -1,9 +1,10 @@
 {
-  "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "version": "0.0.1",
+  "name": "zobzn.com",
+  "description": "My Notes Website",
+  "author": "zobzn <zlobzn@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@loadable/component": "^5.10.2",
     "es6-promise": "^4.2.8",
@@ -43,10 +44,6 @@
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
     "prod": "gatsby build",
@@ -54,12 +51,5 @@
     "clean": "rimraf .cache public",
     "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }

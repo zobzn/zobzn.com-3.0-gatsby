@@ -33,16 +33,16 @@ export default function NotFoundPage() {
         </li>
         <li>
           Нажмите кнопку «
-          <a className={`error-page-link`} onClick={onClickReload}>
+          <span className={`error-page-link`} onClick={onClickReload}>
             Обновить
-          </a>
+          </span>
           » или повторите попытку позже.
         </li>
         <li>
           Нажмите кнопку «
-          <a className={`error-page-link`} onClick={onClickGoBack}>
+          <span className={`error-page-link`} onClick={onClickGoBack}>
             Назад
-          </a>
+          </span>
           », чтобы вернуться на&nbsp;предыдущую страницу.
         </li>
       </ul>

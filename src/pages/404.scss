@@ -1,3 +1,5 @@
+@import "../scss/partial/variables";
+
 .not-found-page {
   & {
     font-family: Verdana, sans-serif;
@@ -50,6 +52,12 @@
 }
 
 .error-page-link {
-  text-decoration: underline;
-  cursor: pointer;
+  & {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: $link-color-hover;
+  }
 }
