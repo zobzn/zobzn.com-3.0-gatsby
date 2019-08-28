@@ -125,4 +125,4 @@ date: "2014-06-15 23:44:10"
 
 Пример
 
-<input type="text" class="zbz-input-clearable zbz-input-clearable--x" value="тест" />
+<iframe width="100%" height="120" src="//jsfiddle.net/uknbwzr4/embedded/result,html,css,js/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
