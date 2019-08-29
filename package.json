@@ -22,10 +22,13 @@
     "ym": "^0.1.2"
   },
   "devDependencies": {
-    "gatsby": "^2.13.82",
+    "@types/jest": "^24.0.18",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.11",
+    "gatsby": "^2.14.4",
     "gatsby-image": "^2.2.14",
     "gatsby-plugin-feed": "^2.3.9",
-    "gatsby-plugin-google-analytics": "^2.1.11",
+    "gatsby-plugin-google-analytics": "^2.1.12",
     "gatsby-plugin-manifest": "^2.2.9",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.1.5",
@@ -40,6 +43,8 @@
     "gatsby-source-filesystem": "^2.1.18",
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.2.12",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0"
@@ -50,6 +55,6 @@
     "serve": "gatsby serve",
     "clean": "rimraf .cache public",
     "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "jest"
   }
 }
