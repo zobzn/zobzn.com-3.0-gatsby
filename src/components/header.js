@@ -19,7 +19,12 @@ export default function Header({ location }) {
     window.location.hostname &&
     localhosts.indexOf(window.location.hostname) !== -1;
 
-  const { title: siteTitle } = data.site.siteMetadata;
+  const { title: siteTitle } = (data &&
+    data.site &&
+    data.site.siteMetadata) || {
+    siteTitle: "Default Title"
+  };
+
   const rootPath = `${__PATH_PREFIX__}/`;
   const isHomepage =
     location && location.pathname && location.pathname === rootPath;
