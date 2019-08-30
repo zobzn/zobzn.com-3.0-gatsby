@@ -42,14 +42,14 @@ export default function Header({ location }) {
         />
       )}
       {isLocalHost && (
-        <a className="zbz-link ml-3" href="/start">
-          Старт
-        </a>
+        <Link className="zbz-link ml-3" to="/start">
+          Start
+        </Link>
       )}
       {isLocalHost && (
-        <a className="zbz-link ml-3" href="/upwork">
+        <Link className="zbz-link ml-3" to="/upwork">
           Upwork
-        </a>
+        </Link>
       )}
     </header>
   );

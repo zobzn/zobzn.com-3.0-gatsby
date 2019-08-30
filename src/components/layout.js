@@ -8,7 +8,7 @@ export default function Layout({ location, children }) {
   return (
     <div className={`page-bone`}>
       <Header location={location} />
-      <main>{children}</main>
+      {children}
     </div>
   );
 }
