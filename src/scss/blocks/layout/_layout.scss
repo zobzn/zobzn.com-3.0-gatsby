@@ -1,4 +1,5 @@
 @import "../../partial/variables";
+@import "../../partial/mixins";
 
 html,
 body {
@@ -21,19 +22,16 @@ body {
 #root,
 .app-root,
 .page-bone {
+  @include adaptive-property(
+    "padding",
+    10px,
+    50px,
+    $page-width-320,
+    $screen-xl-min
+  );
+
   & {
-    padding: 10px;
     margin: 0;
-  }
-
-  @media screen and (min-width: $page-width-320) {
-    padding: calc(
-      10px + 40 * ((100vw - #{$page-width-320}) / #{$screen-xl-min / 1px})
-    );
-  }
-
-  @media screen and (min-width: $screen-xl-min) {
-    padding: 50px;
   }
 }
 
