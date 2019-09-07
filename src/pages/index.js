@@ -33,31 +33,27 @@ export default function IndexPage({ data }) {
             </ul>
           )}
         </div>
-        <div className="homepage-columns__column">
-          <h2 className="homepage-columns__column-title">Инструменты</h2>
-          <ul className="homepage-columns__column-items zbz-links-list">
-            <li className="zbz-links-list__item">
-              <Link to={`/tools/autoprefixer`}>Автопрефиксер CSS</Link>
-            </li>
-            <li className="zbz-links-list__item">
-              <Link to={`/tools/format-js`}>Форматирование JS</Link>
-            </li>
-            <li className="zbz-links-list__item">
-              <Link to={`/tools/format-sql`}>Форматирование SQL</Link>
-            </li>
-            <li className="zbz-links-list__item">
-              <Link to={`/tools/data-uri`}>Генератор Data URI</Link>
-            </li>
-            <li className="zbz-links-list__item">
-              <Link to={`/tools/typograph`}>Простой типограф</Link>
-            </li>
-            <li className="zbz-links-list__item">
-              <Link to={`/tools/slugify`}>Транслит</Link>
-            </li>
-          </ul>
-          <br />
-        </div>
       </div>
+      <p>
+        Привет. Ну раз уж вы не поленились и доскроллили до конца страницы, то
+        давайте знакомиться. Меня зовут Семен. Я — программист.
+        <br />
+        Здесь я записываю заметочки себе на память. В основном фигня всякая, но
+        может попасться и что-то интересное. Мало ли когда пригодится…
+        <br />
+        Если интересно, можете посмотреть{" "}
+        <a target="_blank" href="https://github.com/zobzn/">
+          мой github
+        </a>
+        , а если очень хочень можете даже{" "}
+        <a
+          target="_blank"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform"
+        >
+          написать
+        </a>{" "}
+        мне что-нибудь.
+      </p>
     </Layout>
   );
 }
