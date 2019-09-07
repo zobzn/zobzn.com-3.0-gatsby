@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 import SEO from "../components/seo";
 
-import "./404.scss";
+import "../scss/404.scss";
 
 function onClickReload() {
   global.location.reload();

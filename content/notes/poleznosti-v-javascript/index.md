@@ -23,3 +23,9 @@ Array.from(listItems).forEach(node => {});
 ```js
 [...new Set([1, 3, 1, 5, 7])];
 ```
+
+Удалить повторы в массиве
+
+```js
+[...new Set([1, 3, 1, 5, 7])];
+```

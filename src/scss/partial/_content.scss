@@ -136,10 +136,6 @@ th {
   }
 }
 
-input[type="search"] {
-  box-sizing: border-box;
-}
-
 [type="text"],
 [type="password"],
 [type="search"],
@@ -156,7 +152,6 @@ input[type="search"] {
 textarea {
   // font: 14px/1.4 inherit;
   font: 16px/1.4 serif;
-  box-sizing: border-box;
   border: 1px solid grey;
   border-radius: 2px;
   padding-right: 4px;
@@ -166,16 +161,6 @@ textarea {
   &[readonly] {
     background: rgba(#000, 0.1);
   }
-}
-
-[type="text"],
-[type="password"],
-[type="search"],
-[type="number"],
-[type="email"],
-[type="tel"],
-[type="url"] {
-  width: 200px;
 }
 
 textarea {
