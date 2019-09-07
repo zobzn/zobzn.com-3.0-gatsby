@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { useSpeechSynthesis } from "react-speech-kit";
 import useSpeechSynthesis from "../lib/useSpeechSynthesis";
 
 import Layout from "../components/layout";
