@@ -13,23 +13,18 @@ export default function Header({ location }) {
     }
   `);
 
-  const localhosts = ["localhost", "127.0.0.1", "10.0.75.1", "192.168.0.100"];
-  const isLocalHost =
-    typeof window !== "undefined" &&
-    window.location.hostname &&
-    localhosts.indexOf(window.location.hostname) !== -1;
-
   const { title: siteTitle } = (data &&
     data.site &&
     data.site.siteMetadata) || {
-    siteTitle: "Default Title"
+    siteTitle: "Ы"
   };
 
   const rootPath = `${__PATH_PREFIX__}/`;
+  const localhosts = ["localhost", "127.0.0.1", "10.0.75.1", "192.168.0.100"];
+  const isLocalHost =
+    location.hostname && localhosts.indexOf(location.hostname) !== -1;
   const isHomepage =
     location && location.pathname && location.pathname === rootPath;
-
-  console.log(location);
 
   return (
     <header className="site-head">
