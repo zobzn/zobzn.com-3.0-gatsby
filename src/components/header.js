@@ -29,6 +29,8 @@ export default function Header({ location }) {
   const isHomepage =
     location && location.pathname && location.pathname === rootPath;
 
+  console.log(location);
+
   return (
     <header className="site-head">
       {isHomepage && (

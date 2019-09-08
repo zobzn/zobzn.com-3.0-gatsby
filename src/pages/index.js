@@ -4,14 +4,14 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-export default function IndexPage({ data }) {
+export default function IndexPage({ data, location }) {
   const notes = data.allMarkdownRemark.edges.map(({ node }) => ({
     slug: node.fields.slug,
     title: node.frontmatter.title || node.fields.slug
   }));
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="ы" />
       <h2>Заметки</h2>
       {notes.length < 1 && <p>Все заметки куда-то потерялись… :-(</p>}

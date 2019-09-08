@@ -77,7 +77,7 @@ function useEnglishSpeaker() {
     : [false, null, null, null, []];
 }
 
-export default function IndexPage({ data }) {
+export default function StartPage({ location }) {
   const [isReady, setIsReady] = useState(false);
   const [phrases, setPhrases] = useState(null);
   const [phrase, setPhrase] = useState(null);
@@ -139,7 +139,7 @@ export default function IndexPage({ data }) {
 
   if (!isReady) {
     return (
-      <Layout>
+      <Layout location={location}>
         <SEO title="ы" />
         <p>Загрузка…</p>
       </Layout>
@@ -147,7 +147,7 @@ export default function IndexPage({ data }) {
   }
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="ы" />
       <div className="app-body">
         <div style={{ margin: "auto", fontSize: "2em" }}>
