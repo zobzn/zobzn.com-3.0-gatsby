@@ -75,41 +75,32 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const parsedFilePath = path.parse(getNode(node.parent).relativePath); // dir, base, name, ext
-    let slug = createFilePath({ node, getNode, trailingSlash: true });
+    const file = path.parse(getNode(node.parent).relativePath); // dir, base, name, ext
+
+    let slug = null;
     let date = null;
 
-    if (node.frontmatter) {
-      if (node.frontmatter.slug) {
-        slug = `/${node.frontmatter.slug}/`;
-      } else if (node.frontmatter.title) {
-        slug = `/${slugify(node.frontmatter.title)}/`;
-      }
-
-      if (node.frontmatterdate) {
-        date = new Date(node.frontmatter.date);
-      }
+    if (node.frontmatter && node.frontmatter.slug) {
+      slug = `/${node.frontmatter.slug}/`;
+    } else if (node.frontmatter && node.frontmatter.title) {
+      slug = `/${slugify(node.frontmatter.title)}/`;
+    } else if (file.name !== "index" && file.dir !== "") {
+      slug = `/${file.dir}/${file.name}/`;
+    } else if (file.dir === "") {
+      slug = `/${file.name}/`;
+    } else {
+      slug = `/${file.dir}/`;
     }
 
-    if (false) {
-      if (node.frontmatter && node.frontmatter.title) {
-        slug = `/${kebabCase(node.frontmatter.title)}/`;
-      } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
-        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
-      } else if (parsedFilePath.dir === "") {
-        slug = `/${parsedFilePath.name}/`;
-      } else {
-        slug = `/${parsedFilePath.dir}/`;
-      }
+    if (node.frontmatter && node.frontmatter.date) {
+      date = new Date(node.frontmatter.date);
     }
 
-    if (slug) {
-      createNodeField({
-        node,
-        name: `slug`,
-        value: slug
-      });
-    }
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug
+    });
 
     if (date) {
       createNodeField({
