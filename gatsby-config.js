@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `ы`,
+    siteUrl: "https://zobzn.com/",
     description: `Заметки на память по программированию и всему такому…`,
     author: `zobzn`
   },
@@ -45,6 +46,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -64,6 +66,5 @@ module.exports = {
         icon: `src/images/zobzn-icon.png`
       }
     }
-    // `gatsby-plugin-offline`
   ]
 };

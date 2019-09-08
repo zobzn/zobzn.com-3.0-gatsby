@@ -5,7 +5,23 @@
  */
 
 const path = require(`path`);
+const { slugify } = require(`transliteration`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+
+// нужно для того, чтоб теги были не обязательными
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      description: String!
+      tags: [String!]!
+    }
+  `;
+  createTypes(typeDefs);
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -37,13 +53,6 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
 
-  createRedirect({
-    redirectInBrowser: true,
-    isPermanent: true,
-    fromPath: `/notes/`,
-    toPath: `/`
-  });
-
   result.data.allMarkdownRemark.edges.forEach((item, index) => {
     createPage({
       path: item.node.fields.slug,
@@ -53,20 +62,61 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
+
+  createRedirect({
+    redirectInBrowser: true,
+    isPermanent: true,
+    fromPath: `/notes/`,
+    toPath: `/`
+  });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const parsedFilePath = path.parse(getNode(node.parent).relativePath); // dir, base, name, ext
+    let slug = createFilePath({ node, getNode, trailingSlash: true });
+    let date = null;
 
-    console.log(value);
+    if (node.frontmatter) {
+      if (node.frontmatter.slug) {
+        slug = `/${node.frontmatter.slug}/`;
+      } else if (node.frontmatter.title) {
+        slug = `/${slugify(node.frontmatter.title)}/`;
+      }
 
-    createNodeField({
-      name: `slug`,
-      node,
-      value
-    });
+      if (node.frontmatterdate) {
+        date = new Date(node.frontmatter.date);
+      }
+    }
+
+    if (false) {
+      if (node.frontmatter && node.frontmatter.title) {
+        slug = `/${kebabCase(node.frontmatter.title)}/`;
+      } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
+        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
+      } else if (parsedFilePath.dir === "") {
+        slug = `/${parsedFilePath.name}/`;
+      } else {
+        slug = `/${parsedFilePath.dir}/`;
+      }
+    }
+
+    if (slug) {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: slug
+      });
+    }
+
+    if (date) {
+      createNodeField({
+        node,
+        name: "date",
+        value: date.toISOString()
+      });
+    }
   }
 };
