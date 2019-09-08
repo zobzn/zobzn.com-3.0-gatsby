@@ -5,6 +5,8 @@ module.exports = {
     author: `zobzn`
   },
   plugins: [
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -61,9 +63,7 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/zobzn-icon.png`
       }
-    },
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`
+    }
     // `gatsby-plugin-offline`
   ]
 };

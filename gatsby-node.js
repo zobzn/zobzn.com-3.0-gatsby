@@ -8,7 +8,7 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const noteTemplate = path.resolve(`./src/templates/note.js`);
   const result = await graphql(
@@ -36,6 +36,13 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) {
     throw result.errors;
   }
+
+  createRedirect({
+    redirectInBrowser: true,
+    isPermanent: true,
+    fromPath: `/notes/`,
+    toPath: `/`
+  });
 
   result.data.allMarkdownRemark.edges.forEach((item, index) => {
     createPage({

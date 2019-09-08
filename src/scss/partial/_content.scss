@@ -113,10 +113,13 @@ pre,
 pre[class*="language-"],
 code {
   font: 16px/1.3 $font-mono;
-  //noinspection CssInvalidPropertyValue
-  font-size: responsive 14px 17px;
-  //noinspection CssUnknownProperty
-  font-range: $page-width-320 $screen-lg-min;
+  @include adaptive-property(
+    "font-size",
+    14px,
+    17px,
+    $page-width-320,
+    $screen-lg-min
+  );
 }
 
 td,

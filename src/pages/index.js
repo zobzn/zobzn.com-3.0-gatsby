@@ -36,12 +36,17 @@ export default function IndexPage({ data }) {
         может попасться и что-то интересное. Мало ли когда пригодится…
         <br />
         Если интересно, можете посмотреть{" "}
-        <a target="_blank" href="https://github.com/zobzn/">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/zobzn/"
+        >
           мой github
         </a>
         , а если очень хочень можете даже{" "}
         <a
           target="_blank"
+          rel="noopener noreferrer"
           href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform"
         >
           написать

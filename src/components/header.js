@@ -32,7 +32,9 @@ export default function Header({ location }) {
   return (
     <header className="site-head">
       {isHomepage && (
-        <h1 className="site-head__title" data-site-title={siteTitle}></h1>
+        <h1 className="site-head__title" data-site-title={siteTitle}>
+          {""}
+        </h1>
       )}
       {!isHomepage && (
         <Link
@@ -44,11 +46,6 @@ export default function Header({ location }) {
       {isLocalHost && (
         <Link className="zbz-link ml-3" to="/start">
           Start
-        </Link>
-      )}
-      {isLocalHost && (
-        <Link className="zbz-link ml-3" to="/upwork">
-          Upwork
         </Link>
       )}
     </header>

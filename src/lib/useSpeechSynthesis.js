@@ -9,36 +9,38 @@ const useSpeechSynthesis = (props = {}) => {
     setVoices(voiceOptions);
   };
 
-  const getVoices = () => {
-    if (window) {
-      if (!!window.speechSynthesis) {
-        // Firefox seems to have voices upfront and never calls the
-        // voiceschanged event
-        let voiceOptions = window.speechSynthesis.getVoices();
-        if (voiceOptions.length > 0) {
-          processVoices(voiceOptions);
-          return;
-        }
-
-        window.speechSynthesis.onvoiceschanged = event => {
-          voiceOptions = event.target.getVoices();
-          processVoices(voiceOptions);
-        };
-      } else {
-        processVoices([]);
-      }
-    } else {
-      processVoices([]);
-    }
-  };
-
   const handleEnd = () => {
     setSpeaking(false);
     onEnd();
   };
 
   useEffect(() => {
-    getVoices();
+    function loadVoices() {
+      return new Promise((resolve, reject) => {
+        if (
+          window &&
+          window.speechSynthesis &&
+          window.speechSynthesis.getVoices
+        ) {
+          let voices = window.speechSynthesis.getVoices();
+          if (voices.length > 0) {
+            resolve(voices);
+            return;
+          }
+          window.speechSynthesis.onvoiceschanged = event => {
+            // voices = window.speechSynthesis.getVoices();
+            voices = event.target.getVoices();
+            resolve(voices);
+          };
+        } else {
+          reject();
+        }
+      });
+    }
+
+    loadVoices()
+      .then(voices => processVoices(voices))
+      .catch(() => processVoices([]));
   }, []);
 
   const speak = (args = {}) => {

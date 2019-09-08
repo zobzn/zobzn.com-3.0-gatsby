@@ -16,24 +16,6 @@ function getRandomItemFromArray(arr) {
   return arr.length ? arr[Math.floor(Math.random() * arr.length)] : null;
 }
 
-function getVoices() {
-  return new Promise((resolve, reject) => {
-    if (window.speechSynthesis && window.speechSynthesis.getVoices) {
-      let voices = speechSynthesis.getVoices();
-      if (voices.length) {
-        resolve(voices);
-        return;
-      }
-      speechSynthesis.onvoiceschanged = () => {
-        voices = speechSynthesis.getVoices();
-        resolve(voices);
-      };
-    } else {
-      reject();
-    }
-  });
-}
-
 // @see https://eeejay.github.io/webspeechdemos/
 // @see https://github.com/eeejay/webspeechdemos
 
@@ -188,7 +170,9 @@ export default function IndexPage({ data }) {
             disabled={false && isSpeaking}
             title={voice.name}
           >
-            🔊
+            <span role="img" aria-label="play">
+              🔊
+            </span>
           </button>
         )}
         {true && (
