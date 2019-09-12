@@ -48,7 +48,7 @@
   },
   "scripts": {
     "dev": "gatsby develop",
-    "prod": "gatsby build",
+    "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "rimraf .cache public",
     "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
