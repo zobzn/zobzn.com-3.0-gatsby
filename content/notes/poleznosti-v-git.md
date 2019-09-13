@@ -54,6 +54,15 @@ git cherry -v master
 git cherry -v master | wc -l
 ```
 
+Создать локальную ветку и переключиться на нее
+
+```bash
+git branch some-branch
+git checkout some-branch
+# или тоже самое одной коммандой
+git checkout -b some-branch
+```
+
 Удалить локальную ветку
 
 ```bash
