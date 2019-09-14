@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 export default function IndexPage({ data, location }) {
-  const notes = data.allMarkdownRemark.edges.map(({ node }) => ({
+  const notes = data.notes.edges.map(({ node }) => ({
     slug: node.fields.slug,
     title: node.frontmatter.title || node.fields.slug
   }));
@@ -57,9 +57,15 @@ export default function IndexPage({ data, location }) {
   );
 }
 
+// filter: {
+//     frontmatter: { template: { ne: "page" }, published: { ne: false } }
+// }
+
 export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+  query IndexQuery {
+    notes: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           fields {
