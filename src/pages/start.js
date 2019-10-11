@@ -13,7 +13,9 @@ function loadPhrases() {
 }
 
 function getRandomItemFromArray(arr) {
-  return arr.length ? arr[Math.floor(Math.random() * arr.length)] : null;
+  return arr.length > 0
+    ? arr[Math.floor(Math.random() * arr.length)].replace(/^[-\s]+/, "")
+    : null;
 }
 
 // @see https://eeejay.github.io/webspeechdemos/
