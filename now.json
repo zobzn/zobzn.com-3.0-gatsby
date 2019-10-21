@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "zobzn.com",
+  "alias": ["zobzn.com"],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ]
+}
