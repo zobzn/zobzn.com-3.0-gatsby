@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "alias": ["www.zobzn.com"],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://zobzn.com/$1" }
+    }
+  ]
+}

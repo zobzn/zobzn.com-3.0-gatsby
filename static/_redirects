@@ -1,8 +1,0 @@
-# Redirects from what the browser requests to what we serve
-# https://www.netlify.com/docs/redirects/
-
-/jobs/*             /careers/:splat
-/tags/:tag/         /
-/tags/              /
-/notes/:slug/       /:slug/
-/notes/             /
